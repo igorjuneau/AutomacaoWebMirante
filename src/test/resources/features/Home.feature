@@ -4,22 +4,18 @@
 Funcionalidade: Home
 
   Contexto:
-    Dado que estou no site camicado hml
+    Dado que estou no site blogdoagi
 
   @Home_001
-  Cenario: Banner com Duas Imagens
+  Cenario: Clicar em Produtos Emprestimos
     Dado que estou na tela de Home
-    Quando rolo a tela para baixo 5x
-    Então verifico que a tela Home possui Banner com Duas Imagens
+    E clico no botao Produtos
+    E clico no botao Emprestimos
+    Quando clico no botao emprestimo consignado
+    Então verifico que a tela de Emprestimos Consignados foi carregada com sucesso
 
   @Home_002 
-  Cenario: Banner com Cinco Imagens
+  Cenario: Verificar o Banner Tudo Sobre Emprestimo
     Dado que estou na tela de Home
-    Quando rolo a tela para baixo 11x
-    Então verifico que a tela Home possui Banner com Cinco Imagens
-
-  @Home_003
-  Cenario: Imagem Inválida
-    Dado que estou na tela de Home
-    Quando rolo a tela para baixo 11x
-    Então verifico que existem imagens indisponíveis
+    Quando rolo a tela para baixo 10x
+    Então verifico que as tres imagens foram carregadas
