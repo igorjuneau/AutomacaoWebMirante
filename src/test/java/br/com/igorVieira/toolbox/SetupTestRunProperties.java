@@ -1,4 +1,4 @@
-package br.com.mirante.toolbox;
+package br.com.igorVieira.toolbox;
 
 import java.util.Properties;
 

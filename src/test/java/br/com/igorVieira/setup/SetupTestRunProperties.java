@@ -1,4 +1,4 @@
-package br.com.mirante.setup;
+package br.com.igorVieira.setup;
 
 import java.util.Properties;
 

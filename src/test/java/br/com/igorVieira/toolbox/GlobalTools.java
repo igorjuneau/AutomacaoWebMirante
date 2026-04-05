@@ -1,4 +1,4 @@
-package br.com.mirante.toolbox;
+package br.com.igorVieira.toolbox;
 
 public class GlobalTools {
 
