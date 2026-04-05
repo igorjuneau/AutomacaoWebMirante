@@ -1,4 +1,4 @@
-package br.com.mirante.pages.Home;
+package br.com.igorVieira.pages.Home;
 
 import org.openqa.selenium.By;
 
@@ -7,12 +7,39 @@ public class HomePages {
     public By textoPrincipal() {
         return By.cssSelector("#menu-item-3713 > a > span.menu-text");
     }
-    public By clicoProdutos() {
-        return By.xpath("//*[@id=\"menu-item-3714\"]/a/span[2]");
+
+    public By textoPrincipalIR26() {
+        return By.xpath("//h1[contains(text(), 'Como declarar Imposto de Renda em 2026: passo a passo')]");
     }
+
+    public By textoPixParc() {
+        return By.xpath("//h1[contains(text(), 'Tudo sobre o Pix Parcelado: entenda como irá funcionar')]");
+    }
+
+    public By clicoProdutos() {
+        return By.cssSelector("#menu-item-3714 > a:nth-child(1) > span:nth-child(2)");
+    }
+
     public By clicoEmprestimos() {
         return By.cssSelector("#menu-item-3723 > a > span.menu-text");
     }
+
+    public By lupaBusca() {
+        return By.cssSelector(".ast-header-search .ast-search-menu-icon a");
+    }
+
+    public By campoBusca() {
+        return By.cssSelector("#search-field");
+    }
+
+    public By artigoPassoIR() {
+        return By.cssSelector("#post-22303 > div > div.post-content.ast-width-md-6 > h2 > a");
+    }
+
+    public By artigoPixParc() {
+        return By.cssSelector("#post-18667 > div > div.post-content.ast-width-md-6 > h2 > a");
+    }
+
     public By imagemEmprestimo01() {
         return By.cssSelector("#post-4102 > div > div.wp-block-uagb-post-grid.uagb-post-grid.uagb-post__" +
                 "image-position-background.uagb-post__image-enabled.uagb-block-be168cfe.uagb-post__items.uagb-post" +

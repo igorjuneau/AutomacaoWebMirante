@@ -1,6 +1,6 @@
-package br.com.mirante.steps.Home;
+package br.com.igorVieira.steps.Home;
 
-import br.com.mirante.interactions.Home.HomeInteractions;
+import br.com.igorVieira.interactions.Home.HomeInteractions;
 import io.cucumber.java.pt.*;
 
 public class HomeSteps {
@@ -8,6 +8,41 @@ public class HomeSteps {
     HomeInteractions webSanity = new HomeInteractions();
 
     public HomeSteps() {
+    }
+
+    @E("clico na lupa de busca")
+    public void clicoLupaBusca() {
+        webSanity.clicarLupaBusca();
+    }
+
+    @E("digito Imposto de Renda no campo de busca")
+    public void digitoIpostoRenda() {
+        webSanity.digitarIpostoRenda();
+    }
+
+    @E("digito Pix Parcelado no campo de busca")
+    public void digitoPixParcelado() {
+        webSanity.digitarPixParcelado();
+    }
+
+    @Quando("clico no artigo sobre o passo a passo do IR 2026")
+    public void clicoArtigoPassoaPassoIR() {
+        webSanity.clicarArtigoPassoaPassoIR();
+    }
+
+    @Quando("clico no artigo sobre o pix parcelado como funcionara")
+    public void clicoArtigoPixParcelado() {
+        webSanity.clicarArtigoPixParcelado();
+    }
+
+    @Entao("a tela sobre do artigo é aberta")
+    public void VerificoArtigoPassoaPassoIRAberto() {
+        webSanity.validarArtigoPassoaPassoIRAberto();
+    }
+
+    @Entao("a tela sobre do artigo Pix é aberta")
+    public void VerificoArtigoPixParcAberto() {
+        webSanity.validarArtigoPixParcAberto();
     }
 
     @Quando("clico no botao Produtos")
@@ -27,7 +62,7 @@ public class HomeSteps {
 
     @Dado("que estou na tela de Home")
     public void VerificoqueEstouemHome() {
-        webSanity.validarRetornoHome();
+        webSanity.validarTeladeHome();
     }
 
     @Dado("que estou no site blogdoagi")

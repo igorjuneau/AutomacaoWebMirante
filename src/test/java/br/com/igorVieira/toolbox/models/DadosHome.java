@@ -1,9 +1,9 @@
-package br.com.mirante.toolbox.models;
+package br.com.igorVieira.toolbox.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DadosProduto {
+public class DadosHome {
     @SerializedName("name")
     @Expose
     private String name;
