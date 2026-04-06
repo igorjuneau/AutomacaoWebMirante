@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -22,6 +23,11 @@ public class IgorVieiraTools {
         scenario.attach(screen, "image/png", scenario.getName());
     }
 
+    public static void esperarPaginaCarregar(WebDriver driver) {
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(
+                d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete")
+        );
+    }
 
     public static void aguardarTelaDeLoad() {
         Wait<WebDriver> wait = new FluentWait<>(driver)

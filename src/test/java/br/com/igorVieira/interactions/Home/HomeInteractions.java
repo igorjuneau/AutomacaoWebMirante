@@ -11,7 +11,7 @@ import java.time.Duration;
 import java.util.List;
 
 import static br.com.igorVieira.steps.hook.WebSetup.*;
-
+import static br.com.igorVieira.toolbox.IgorVieiraTools.*;
 
 public class HomeInteractions extends HomePages {
 
@@ -51,17 +51,24 @@ public class HomeInteractions extends HomePages {
     }
 
     public void clicarLupaBusca() {
-        WebElement lupa = wait.until(ExpectedConditions.presenceOfElementLocated(lupaBusca()));
+        driver.navigate().refresh();
+        esperarPaginaCarregar();
+
+        WebElement lupa = wait.until(ExpectedConditions.elementToBeClickable(lupaBusca()));
+
         Actions actions = new Actions(driver);
-        actions.moveToElement(lupa).pause(Duration.ofMillis(130)).perform();
-        actions.click(lupa).perform();
+        actions.moveToElement(lupa).pause(Duration.ofMillis(50)).perform();
+
         try {
+            actions.click(lupa).perform();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".search-field, #search-field")));
-        } catch (TimeoutException e) {
-            ((JavascriptExecutor) driver).executeScript(
-                    "var clickEvent = new MouseEvent('click', { 'view': window, 'bubbles': true, 'cancelable': true });" +
-                            "arguments[0].dispatchEvent(clickEvent);", lupa);
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", lupa);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".search-field, #search-field")));
         }
+    }
+
+    private void esperarPaginaCarregar() {
     }
 
     public void clicarBotaoConsignado() {

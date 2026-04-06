@@ -17,16 +17,7 @@ public class WebSetup {
     public static WebDriver driver;
     public static String scenarioName;
     public static Scenario scenario;
-
     public static String baseUrl = "https://blogdoagi.com.br/";
-
-    @AfterAll()
-    public static void teardDownAll() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-        }
-    }
 
     @Before()
     public void initiate(Scenario scenarioTest) {
@@ -48,11 +39,9 @@ public class WebSetup {
                     break;
                 default:
                 case "chrome":
-                    System.out.println("Iniciando Chrome Nativo...");
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--window-size=1366,768");
                     chromeOptions.addArguments("--remote-allow-origins=*");
-                    //chromeOptions.addArguments("--incognito");
 
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(chromeOptions);
@@ -60,8 +49,10 @@ public class WebSetup {
             }
         }
 
+        driver.manage().deleteAllCookies();
         driver.get(baseUrl);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.navigate().refresh();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
 
@@ -69,13 +60,17 @@ public class WebSetup {
     public void tearDown(Scenario scenario) {
         System.out.printf("TESTE %s finalizado como: %s%n", scenario.getName(), scenario.getStatus().name());
 
-        if (driver != null) {
-            if (scenario.isFailed()) {
-                final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-                scenario.attach(screenshot, "image/png", "Evidência_Erro");
-            }
+        if (driver != null && scenario.isFailed()) {
+            final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "Evidência_Erro");
+        }
+    }
 
-            driver.manage().deleteAllCookies();
+    @AfterAll()
+    public static void teardDownAll() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
         }
     }
 }
