@@ -1,5 +1,13 @@
 🚀 Projeto de Automação: Sanity Web - Blog Agibank
 
+> [!IMPORTANT]
+> ### ⚠️ AVISO DE PROPRIEDADE E ÉTICA PROFISSIONAL
+> Este repositório é público exclusivamente para fins de **portfólio e avaliação**. 
+> A cópia total ou parcial deste código para uso em desafios ou processos seletivos é **estritamente proibida**. 
+> O histórico de commits e originalidade é monitorado. Use este material apenas como referência de estudo.
+
+---
+
 Este projeto consiste em uma suíte de testes automatizados para o Blog do Agibank, focando em garantir a integridade das principais funcionalidades da interface através de Sanity Checks. A arquitetura foi desenhada para ser escalável, de alta manutenção e com total separação de responsabilidades.
 
 
