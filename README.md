@@ -1,4 +1,4 @@
-🚀 Projeto de Automação: Sanity Web - Blog Agibank
+🚀 Projeto de Automação: Blog Agibank
 
 > [!IMPORTANT]
 > ### ⚠️ AVISO DE PROPRIEDADE E ÉTICA PROFISSIONAL
